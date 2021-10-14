@@ -32,7 +32,21 @@ Route::get('cadastros/empresas/remove/{id}', [App\Http\Controllers\EmpresasContr
 Route::get('/', 'UsuariosController@index');
 //Route::get('/home', 'HomeController@index');
 
+
 Route::any('/dashboard', 'DashboardController@index');
+Route::get('/termos', 'DashboardController@termos');
+Route::post('/parametros', 'ParametrosController@insert');
+
+
+Route::any('/privacy', function () {
+    return view('privacy');
+});
+
+    
+Route::any('/condicoes', function () {
+    return view('condicoes');
+});
+        
 
 Route::get('usuarios', 'UsuariosController@index');
 Route::get('usuarios/novo', 'UsuariosController@novo');
@@ -114,7 +128,10 @@ Route::get('/pics/getbyid/{image}', 'OpenController@getbyid');
 Route::get('/v1/frete/{token}/{cep}', 'ApiController@getfrete');
 Route::get('/v1/cep/{token}/{cep}', 'ApiController@getcep');
 
-Route::get('/v1/loja/{token}', 'LojaController@getloja');
+Route::get('/v1/loja/{token}', 'ApiController@getloja');
+Route::get('/v1/item/{token}', 'ApiController@getItem');
+Route::get('/v1/empresa/{token}', 'ApiController@getEmpresa');
+Route::get('/v1/pics/{token}', 'ApiController@getPics');
 
 
 Route::post('v1/paypal/{id}', 'PayPalController@payWithpaypal')->where('id','[0-9]+');

@@ -2,16 +2,10 @@
 @section('content')  
 @include('modalremover')
 
- <script src="{{ asset ('/summernote/summernote-bs4.min.js') }}"></script>
+
+ <script src="{{ asset ('summernote/summernote-bs4.min.js') }}"></script>
  <link href="{{ asset('summernote/summernote-bs4.min.css') }}" rel="stylesheet">
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#ficha').summernote({
-      height:300,
-    });
-});
-    
-</script>
+
 <script type="text/javascript">
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -187,7 +181,14 @@ function readURL(input) {
     
 </main>
 
-
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#ficha').summernote({
+      height:300,
+    });
+});
+    
+</script>
 
 
  @endsection        

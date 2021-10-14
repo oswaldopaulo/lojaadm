@@ -13,13 +13,18 @@ class OpenController extends ControllerOpen
     function getbyitem($id){
         
         $r = DB::table('produtos_imagens')->where(['id_produto'=>$id])->take('1')->get();
-        $image=$r[0]->imagem;
-        if(is_file(public_path('produtos/' . $image))){
-            return response()->file( public_path('produtos/' . $image));
+        if(isset($r[0])){
+            $image=$r[0]->imagem;
+       
+            if(is_file(public_path('produtos/' . $image))){
+                return response()->file( public_path('produtos/' . $image));
+            } else {
+                return response()->file( public_path('produtos/semimage.png'));
+            }
         } else {
             return response()->file( public_path('produtos/semimage.png'));
         }
-       
+           
     }
     
     function getbyname($image){
@@ -35,10 +40,14 @@ class OpenController extends ControllerOpen
     function getbyid($id){
          
         $r = DB::table('produtos_imagens')->where(['id'=>$id])->take('1')->get();
-        $image=$r[0]->imagem;
-       if(is_file(public_path('produtos/' . $image))){
-            return response()->file( public_path('produtos/' . $image));
-        } else {
+        if(isset($r[0])){
+            $image=$r[0]->imagem;
+           if(is_file(public_path('produtos/' . $image))){
+                return response()->file( public_path('produtos/' . $image));
+            } else {
+                return response()->file( public_path('produtos/semimage.png'));
+            }
+        }   else {
             return response()->file( public_path('produtos/semimage.png'));
         }
     }

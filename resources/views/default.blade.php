@@ -77,6 +77,9 @@ $empresa = App\Http\Controllers\EmpresasController::getempresa(Auth::user()->ide
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ url('cadastros/empresas') }}"><i class="fas fa-columns fa-fw"></i>Empresas</a>
 									 <a class="nav-link" href="{{ url('usuarios') }}"><i class="fas fa-user fa-fw"></i>Usuários</a>
+									 <a class="nav-link" href="{{ url('termos') }}"><i class="fas fa-columns fa-fw"></i>Termos Gerais e Privacidade</a>
+									 
+									 
                                     
                                 </nav>
                             </div>
@@ -173,9 +176,9 @@ $empresa = App\Http\Controllers\EmpresasController::getempresa(Auth::user()->ide
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Oswaldo Paulo</div>
                             <div>
-                                <a href="{{ url('privacy') }}">Privacy Policy</a>
+                                <a href="{{ url('privacy') }}" target="new">Privacy Policy</a>
                                 &middot;
-                                <a href="{{ url('privacy') }}">Terms &amp; Conditions</a>
+                                <a href="{{ url('condicoes') }}" target="new">Terms &amp; Conditions</a>
                             </div>
                         </div>
                     </div>

@@ -147,8 +147,79 @@ class ApiController extends ControllerOpen
        
     }
     
+    public function getEmpresa($token){
+        
+        $empresa = DB::table('empresas')->where(['token'=>$token])->first();
+        
+        if(!isset($empresa)){
+            $resultado['erro']="token invalido";
+            return response()->json($resultado);
+        }
+        
+        return response()->json( $empresa);
+    }
   
+    public function getloja($token){
+        $empresa = DB::table('empresas')->where(['token'=>$token])->first();
+        
+        if(!isset($empresa)){
+            $resultado['erro']="token invalido";
+            return response()->json($resultado);
+        }
+        
+        $loja = DB::table('loja')->where(['idempresa'=>$empresa->id])->get();
+        
+        
+        foreach($loja as $k => $l){
+            
+            $loja[$k]->produto =  DB::table('produtos')->where(['id'=>$l->idproduto])->first();
+        }
+        
+        return response()->json($loja);
+    }
     
+    public function getItem($token){
+        
+        if(Request::input('id') == null){
+            $resultado['erro']="ID invalido";
+            return response()->json($resultado);
+        }
+      
+        $empresa = DB::table('empresas')->where(['token'=>$token])->first();
+        
+        if(!isset($empresa)){
+            $resultado['erro']="token invalido";
+            return response()->json($resultado);
+        }
+        
+        $loja = DB::table('loja')->where(['idempresa'=>$empresa->id,'idloja'=>Request::input('id')])->get();
+        
+        
+        foreach($loja as $k => $l){
+            
+            $loja[$k]->produto =  DB::table('produtos')->where(['id'=>$l->idproduto])->first();
+        }
+        
+        return response()->json($loja);
+    }
+    
+    public function getPics($token){
+        
+        if(Request::input('id') == null){
+            $resultado['erro']="ID invalido";
+            return response()->json($resultado);
+        }
+        
+        $empresa = DB::table('empresas')->where(['token'=>$token])->first();
+        
+        if(!isset($empresa)){
+            $resultado['erro']="token invalido";
+            return response()->json($resultado);
+        }
+        
+        $r = DB::table('produtos_imagens')->where(['id_produto'=>Request::input('id')])->get();
+        return response()->json($r);
+    }
     
     
 }

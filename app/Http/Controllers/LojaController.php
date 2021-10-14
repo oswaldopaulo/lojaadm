@@ -140,22 +140,5 @@ GROUP by  `idloja`, loja.idproduto, `preco`, `desconto`, `datainicioloja`, `data
         return redirect()->action('LojaController@index')->with(['id' => Request::input('idloja'), 'desc'=> Request::input('descricao')]);
     }
     
-    public function getloja($token){
-        $empresa = DB::table('empresas')->where(['token'=>$token])->first();
-        
-        if(!isset($empresa)){
-            $resultado['erro']="token invalido";
-            return response()->json($resultado);
-        } 
-        
-        $loja = DB::table('loja')->where(['idempresa'=>$empresa->id])->get();
-        
-        
-        foreach($loja as $k => $l){
-           
-            $loja[$k]->produtos =  DB::table('produtos')->where(['id'=>$l->idproduto])->first();
-        }
-        
-        return response()->json($loja);
-    }
+   
 }

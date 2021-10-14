@@ -1,5 +1,7 @@
 @extends('default')
 @section('content')  
+ <script src="{{ asset ('summernote/summernote-bs4.min.js') }}"></script>
+ <link href="{{ asset('summernote/summernote-bs4.min.css') }}" rel="stylesheet">
 <script type="text/javascript">
 $(document).ready(function() {
     $('#ficha').summernote({

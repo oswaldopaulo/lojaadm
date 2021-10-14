@@ -63,7 +63,10 @@ class DashboardController extends Controller
    
     
    
-   
+    function termos(){
+        
+        return view('termos');
+    }
     
     
 }

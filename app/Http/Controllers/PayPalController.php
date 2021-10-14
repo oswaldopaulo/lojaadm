@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use \App\Http\Controllers\ParametrosController as Par;
+
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Payer;
@@ -13,10 +17,6 @@ use PayPal\Api\Transaction;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Payment;
 use PayPal\Exception\PayPalConnectionException;
-use PayPal\Api\PaymentExecution;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use \App\Http\Controllers\ParametrosController as Par;
 
 
 class PayPalController extends Controller
