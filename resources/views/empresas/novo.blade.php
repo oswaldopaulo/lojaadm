@@ -42,8 +42,8 @@
 			 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
 				 	<div class="form-group row">
-                        <label for="nome" class="col-sm-1 col-form-label">Nome</label>
-                        <div class="col-sm-5">
+                        <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                        <div class="col-sm-4">
                           <input type="text" name="nome"  class="form-control"  required value="{{old('nome')}}">
                         </div>
 
@@ -57,27 +57,37 @@
              	    </div>
 
                     <div class="form-group row">
-                             <label for="email" class="col-sm-1 col-form-label">Email</label>
-                            <div class="col-sm-5">
+                             <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
                               <input type="email" name="email"  class="form-control"   value="{{old('email')}}" required>
                             </div>
-                            <label for="token" class="col-sm-1 col-form-label">Token</label>
-                            <div class="col-sm-5 input-group">
+                          
+                    </div>
+                    
+                    <div class="form-group row">
+                    	  <label for="token" class="col-sm-2 col-form-label">Token Publico</label>
+                            <div class="col-sm-4 input-group">
                               <input type="text" name="token" id="token" class="form-control"   value="{{old('token')}}" required readonly>
                                  <div class="input-group-append">
-                                <button class="btn btn-primary" type="button"  onClick="generateToken(token,50)" title="alterar token"><i class="fas fa-cloud-download-alt"></i></button>
+                                <button class="btn btn-primary" type="button"  onClick="generateToken(token,50)" title="alterar token"><i class="fas fa-sync"></i></button>
+                                </div>
+                            </div>  <label for="token" class="col-sm-2 col-form-label">Token Privado</label>
+                            <div class="col-sm-4 input-group">
+                              <input type="text" name="token2" id="token2" class="form-control"   value="{{old('token')}}" required readonly>
+                                 <div class="input-group-append">
+                                <button class="btn btn-primary" type="button"  onClick="generateToken(token2,50)" title="alterar token"><i class="fas fa-sync"></i></button>
                                 </div>
                             </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="telefone" class="col-sm-1 col-form-label">Telefone</label>
+                        <label for="telefone" class="col-sm-2 col-form-label">Telefone</label>
                         <div class="col-sm-3">
                           <input type="text" name="telefone"  class="form-control"  value="{{old('telefone')}}">
                         </div>
 
                          <label for="celular" class="col-sm-1 col-form-label">Celular</label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                           <input type="text" name="celular"  class="form-control"  value="{{old('celular')}}">
                         </div>
                           <label for="cep_end" class="col-sm-1 col-form-label">CEP</label>
@@ -94,8 +104,8 @@
                     <div class="form-group row">
 
 
-                         <label for="des_end" class="col-sm-1 col-form-label">Endereço</label>
-                        <div class="col-sm-5">
+                         <label for="des_end" class="col-sm-2 col-form-label">Endereço</label>
+                        <div class="col-sm-4">
                           <input type="text" name="des_end" id="des_end"  class="form-control"  value="{{old('des_end')}}">
                         </div>
 
@@ -114,8 +124,8 @@
                 <div class="form-group row">
 
 
-                         <label for="bairro" class="col-sm-1 col-form-label">Bairro</label>
-                        <div class="col-sm-4">
+                         <label for="bairro" class="col-sm-2 col-form-label">Bairro</label>
+                        <div class="col-sm-3">
                           <input type="text" name="bairro" id="bairro"  class="form-control"  value="{{old('bairro')}}">
                         </div>
 
@@ -135,8 +145,8 @@
                      </div>
 
                   <div class="form-group row">
-                      <label for="observacao" class="col-sm-1 col-form-label">Observação</label>
-                        <div class="col-sm-11">
+                      <label for="observacao" class="col-sm-2 col-form-label">Observação</label>
+                        <div class="col-sm-10">
                             <textarea name="observacao" id="observacao"   rows="5" class="form-control">
                                 {{old('observacao')}}
                             </textarea>
@@ -176,5 +186,6 @@
 <script type="text/javascript" src="{{ asset('js/gettoken.js')}}"/></script>
 <script type="text/javascript">
     generateToken(token,50);
+    generateToken(token2,50);
 </script>
  @endsection

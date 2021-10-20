@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\EmpresasController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\EmpresasController::class, 'index'])->name('home');
 
 
 Route::get('cadastros/empresas', [App\Http\Controllers\EmpresasController::class, 'index']);
@@ -29,8 +27,8 @@ Route::post('cadastros/empresas/editar', [App\Http\Controllers\EmpresasControlle
 Route::get('cadastros/empresas/remove/{id}', [App\Http\Controllers\EmpresasController::class, 'remove'])->where('id','[0-9]+');
 
 
-Route::get('/', 'UsuariosController@index');
-//Route::get('/home', 'HomeController@index');
+Route::get('/', 'LojaController@index');
+Route::get('/home', 'LojaController@index');
 
 
 Route::any('/dashboard', 'DashboardController@index');
