@@ -69,7 +69,7 @@
                 	 
 				 	<div class="form-group row">
                          <label for="idempresa" class="col-sm-1 col-form-label">Empresa</label>
-                         <div class="col-sm-3">
+                         <div class="col-sm-11">
                             <select class="form-control"  name="idempresa"  placeholder="Empresa" required>  
                                             <option value="">Selecione</option>
                                         @if($empresas)

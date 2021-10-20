@@ -12,7 +12,10 @@ class TransacoesController extends Controller
     function index(){
       
            
-        $t =  DB::table('transacoes')->where(['idempresa'=>Auth::user()->idempresa])->get();
+        $t =  DB::table('transacoes')
+            ->where(['idempresa'=>Auth::user()->idempresa])
+            ->orderBy('id','desc')
+            ->get();
         
     
         return view('transacoes/index')->with(['t' =>$t]);

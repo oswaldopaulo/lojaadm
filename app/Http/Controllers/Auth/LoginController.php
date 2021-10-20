@@ -57,7 +57,7 @@ class LoginController extends Controller
             
         ], $messages);
         
-        $secretKey = '6LdzR8wcAAAAAAbOwTXAuLhbDqWYnGTg9YqkdFfL';
+       /*  $secretKey = '6LdzR8wcAAAAAAbOwTXAuLhbDqWYnGTg9YqkdFfL';
         
         // See https://developers.google.com/recaptcha/docs/verify#api-request
         $fields = array(
@@ -84,10 +84,12 @@ class LoginController extends Controller
         curl_close($ch);
         
         $result = json_decode($result, true);
+        
+         
         if (!$result["success"])  return redirect()->back()->with(['errors'=>$validator->errors()->all()])->withErrors([
             ['errors'=>$validator->errors()->all()],
         ]);
-        
+        */
         if ($validator->passes()) {
             if (auth()->attempt(array('email' =>  Request::input('email'),
                 'password' =>  Request::input('password')),true))
