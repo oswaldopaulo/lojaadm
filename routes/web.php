@@ -130,6 +130,7 @@ Route::get('/v1/loja/{token}', 'ApiController@getloja');
 Route::get('/v1/item/{token}', 'ApiController@getItem');
 Route::get('/v1/empresa/{token}', 'ApiController@getEmpresa');
 Route::get('/v1/pics/{token}', 'ApiController@getPics');
+Route::get('/v1/transacoes/{token}', 'ApiController@getTransacoes');
 
 
 Route::post('v1/paypal/{id}', 'PayPalController@payWithpaypal')->where('id','[0-9]+');

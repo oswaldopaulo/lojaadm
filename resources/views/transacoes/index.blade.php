@@ -57,6 +57,8 @@
                  <i class="fas fa-table mr-1"></i>
                                Cadastros
             </div>
+            
+             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width ="100%" cellspacing="0">
@@ -98,6 +100,7 @@
                     </table>
                 </div>
             </div>
+           
         </div>
     </div>
 </main>

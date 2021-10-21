@@ -26,7 +26,12 @@ class TransacoesController extends Controller
          if(DB::table('transacoes')->where(['idempresa'=>Auth::user()->idempresa,'id'=>$id])->exists()) {
              
              $t =  DB::table('transacoes_itens')->where(['id_trans'=>$id])->get();
-             return view('transacoes/itens')->with(['t' =>$t]);
+             
+             $transacao =  DB::table('transacoes')
+                            ->where(['transacoes.id'=>$id])
+                            ->first();
+             
+             return view('transacoes/itens')->with(['t' =>$t,'transacao'=>$transacao]);
          } else {
              return view('404');
          }

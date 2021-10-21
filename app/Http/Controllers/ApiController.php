@@ -221,5 +221,26 @@ class ApiController extends ControllerOpen
         return response()->json($r);
     }
     
+    public function getTransacoes($token){
+        
+        if(Request::input('iduser') == null){
+            $resultado['erro']="IDUser invalido";
+            return response()->json($resultado);
+        }
+        
+        $empresa = DB::table('empresas')->where(['token'=>$token])->first();
+        
+        if(!isset($empresa)){
+            $resultado['erro']="token invalido";
+            return response()->json($resultado);
+        }
+        
+        $r = DB::table('transacoes')
+        ->where(['idempresa'=>$empresa->id, 'iduser'=>Request::input('iduser')])
+        ->orderBy('id','desc')
+        ->get();
+        return response()->json($r);
+    }
+    
     
 }

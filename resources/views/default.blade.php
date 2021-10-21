@@ -194,10 +194,13 @@ $empresa = App\Http\Controllers\EmpresasController::getempresa(Auth::user()->ide
          <script src="{{ asset('vendor/bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js') }}">  </script>  
         <link href="{{ asset ('vendor/bootstrap-select-1.13.14/dist/css/bootstrap-select.min.css') }}" rel="stylesheet"/>
          
-        @if (Request::path() != 'loja')
-        <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script>
+        @if (Request::path() == 'loja')
+       		 <script src="{{ asset('assets/demo/datatables-loja.js') }}"></script>
+        	
+       	@elseif(substr(Request::path(),0,10) == 'transacoes')
+       		<script src="{{ asset('assets/demo/datatables-nobuttons.js') }}"></script>
         @else
-             <script src="{{ asset('assets/demo/datatables-loja.js') }}"></script>
+             <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script>
         @endif
         
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>

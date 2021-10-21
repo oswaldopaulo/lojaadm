@@ -53,10 +53,56 @@
                     
                       @endif
                     @endif
+                    
+         <div class="card mb-4">
+            <div class="card-header">
+                 <i class="fas fa-table mr-1"></i>
+                             Transação {{ $transacao->id}}
+            </div>
+            
+           
+            <div class="card-body">
+            
+            <div class="row">
+                
+                
+                <form  role="form" action="{{ url('/loja/novo') }}" method="post" class="form-inline">    
+                          <input type="hidden"
+										name="_token" value="{{{ csrf_token() }}}" />
+                            
+                            <div class="form-group row">
+                    <label for="name" class="col-sm-1 col-form-label">Tra</label>
+                    <div class="col-sm-4">
+                      <input type="text" name="nome_estado" id="nome_estado" class="form-control"  required value="{{old('nome_estado')}}">
+                    </div>
+                      <label for="uf_estado" class="col-sm-1 col-form-label">UF</label>
+                    <div class="col-sm-2">
+                      <input type="text" name="uf_estado" id="uf_estado" class="form-control" required value="{{old('uf_estado')}}">
+                    </div>
+                    
+                   <label for="codigo_estado" class="col-sm-1 col-form-label">C. IBGE</label>
+                    <div class="col-sm-3">
+                      <input type="text" name="codigo_estado" id="codigo_estado" class="form-control"  required  value="{{old('codigo_estado')}}">
+                    </div>
+                 </div>	
+                              
+                              
+                          
+                            </form>
+            
+             
+             </div>
+                        
+            
+         </div>
+      </div>
+        
+                    
+                    
         <div class="card mb-4">
             <div class="card-header">
                  <i class="fas fa-table mr-1"></i>
-                               Cadastros
+                               Cadastros 
             </div>
             <div class="card-body">
                 <div class="table-responsive">
