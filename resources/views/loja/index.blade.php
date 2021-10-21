@@ -107,7 +107,7 @@ function setchange(idloja,campo){
                           <input type="hidden"
 										name="_token" value="{{{ csrf_token() }}}" />
                               <div class="form-group" style="padding: 5px">
-                        		 <label for="idproduto">Produtos</label>
+                        		 <label for="idproduto">Produto:</label>
                                 <select id="idproduto" name="idproduto" class="form-control selectpicker" data-live-search="true" required="required">
                                  @foreach($itens as $i)
                                               <option value="{{$i->id}}">{{ $i->descricao }}</option>
@@ -115,7 +115,7 @@ function setchange(idloja,campo){
                                 </select>
                                 </div>
                                 <div class="form-group" style="padding: 5px" >
-                                    <label for="preco">Preco R$</label>
+                                    <label for="preco">Preco R$: </label>
                                     <input id="preco" name="preco" class="form-control"  value="{{ old('preco') }}" required="required" type="number" step="0.01">
                               </div>
                     
@@ -124,21 +124,37 @@ function setchange(idloja,campo){
                                     <input id="demanda" name="demanda" class="form-control"  value="{{ old('demanda') }}" required="required" type="number" step="0.01">
                               </div>
                               <div class="form-group" style="padding: 5px">
-                                    <label for="desconto">Desconto %</label>
+                                    <label for="desconto">Desconto %: </label>
                                     <input id="desconto" name="desconto" class="form-control"  value="{{ old('desconto') }}" required="required"  type="number" step="0.01">
                                 </div>
+                                
                                 <div class="form-group" style="padding: 5px">
-                                <label for="datainicioloja">D. Ini.Loja</label>
+                        		 <label for="comissao">Comissão: </label>
+                                <select id="comissao" name="comissao" class="form-control" data-live-search="true" required="required">
+                                
+                                              <option value="">Selecione</option>
+                                              <option value="0.03">3%</option>
+                                              <option value="0.04">4%</option>
+                                              <option value="0.05">5%</option>
+                                              <option value="0.06">6%</option>
+                                              <option value="0.07">7%</option>
+                                              
+                                            
+                                </select>
+                                </div>
+                                
+                                <div class="form-group" style="padding: 5px">
+                                <label for="datainicioloja">D. Ini.Loja:</label>
                                 <input id="datainicioloja" name="datainicioloja" class="form-control"  value="{{ old('datainicioloja') }}" required="required"  type="date">
                                 
-                                <label for="datafimloja">D. Fim Loja</label>
+                                <label for="datafimloja">D. Fim Loja:</label>
                                 <input id="datafimloja" name="datafimloja" class="form-control"  value="{{ old('datafimloja') }}" required="required"  type="date">
                                 </div>
                                 <div class="form-group" style="padding: 5px">
-                                <label for="datainiciopromo">D. Ini. Desc.</label>
+                                <label for="datainiciopromo">D. Ini. Desc.:</label>
                                 <input id="datainiciopromo" name="datainiciopromo" class="form-control"  value="{{ old('datainiciopromo') }}"   type="date">
                               
-                                <label for="datafimpromo">D. Ini. Desc.</label>
+                                <label for="datafimpromo">D. Ini. Desc.:</label>
                                 <input id="datafimpromo" name="datafimpromo" class="form-control"  value="{{ old('datafimopromo') }}"  type="date">
                               
                               </div>
@@ -174,6 +190,7 @@ function setchange(idloja,campo){
                                 <th>Produto</th> 
                                 <th>Estoque</th>  
                                 <th>Preco (R$)</th> 
+                                <th>Comissão</th> 
                                 <th>Desconto %</th> 
                                 <th>D. Ini. Loja</th>
                                 <th>D. Fim. Loja</th>
@@ -198,6 +215,7 @@ function setchange(idloja,campo){
                                                          
                                  <td><input id="demanda-{{$r->idloja}}" name="demanda-{{$r->idloja}}" type="number" step="1" value="{{ $r->demanda }}" onchange="setchange({{$r->idloja}},this)"  style="width: 40px" required/></td> 
                                  <td><input id="preco-{{$r->idloja}}" name="preco-{{$r->idloja}}" type="number" step="0.01" value="{{ $r->preco }}" onchange="setchange({{$r->idloja}},this)" required/></td> 
+                                 <td><input id="comissao-{{$r->idloja}}" name="comissao-{{$r->idloja}}" type="number" step="0.01" value="{{ $r->comissao }}" onchange="setchange({{$r->idloja}},this)" required /></td>
                                  <td><input id="desconto-{{$r->idloja}}" name="desconto-{{$r->idloja}}" type="number" step="0.01" value="{{ $r->desconto }}" onchange="setchange({{$r->idloja}},this)" required /></td> 
                                  <td><input id="datainicioloja-{{$r->idloja}}" name="datainicioloja-{{$r->idloja}}" type="date" value="{{$r->datainicioloja}}" onchange="setchange({{$r->idloja}},this)" required/></td>
                                  <td><input id="datafimloja-{{$r->idloja}}" name="datafimloja-{{$r->idloja}}" type="date" value="{{$r->datafimloja}}" onchange="setchange({{$r->idloja}},this)" required/></td>

@@ -68,23 +68,23 @@ function readURL(input) {
 			 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 			 
 			 <div class="form-group row">
-                    <label for="descricao" class="col-sm-1 col-form-label">Descrição</label>
-                    <div class="col-sm-11">
+                    <label for="descricao" class="col-sm-2 col-form-label">Descrição</label>
+                    <div class="col-sm-10">
                       <input type="text" name="descricao" id="descricao" class="form-control"  required value="{{old('descricao')}}">
                     </div>
               </div>   
 			 
                     
                  <div class="form-group row">
-                    <label for="cod_barra" class="col-sm-1 col-form-label">C.Barras</label>
-                    <div class="col-sm-11">
+                    <label for="cod_barra" class="col-sm-2 col-form-label">C.Barras</label>
+                    <div class="col-sm-10">
                       <input type="number" name="cod_barra" id="cod_barra" class="form-control"  value="{{old('cod_barra') }}">
                     </div>
               </div> 
                 
                 
              	<div class="form-group row">
-             	 <label for="imagens" class="col-sm-1 col-form-label"></label>
+             	 <label for="imagens" class="col-sm-2 col-form-label"></label>
                    
                     <div class="form-check">
                                 <input id="geral" name="geral" type="checkbox"  class="form-check-input" value="1" @if(old('geral')=='S') checked @endif>
@@ -97,8 +97,8 @@ function readURL(input) {
 				
              	
              	<div class="form-group row">
-             	 <label for="imagens" class="col-sm-1 col-form-label">Imagens</label>
-                    <div class="col-sm-5">
+             	 <label for="imagens" class="col-sm-2 col-form-label">Imagens</label>
+                    <div class="col-sm-10">
                       <input type="file" name="imagens[]" id="imagens" class="form-control"    multiple="multiple"   accept="image/gif, image/jpeg, image/png, imagen/svg">
                     </div>
                             
@@ -107,8 +107,8 @@ function readURL(input) {
             
              	
              	<div class="form-group row">
-                    <label for="detalhes" class="col-sm-1 col-form-label">Detalhes</label>
-                    <div class="col-sm-11">
+                    <label for="detalhes" class="col-sm-2 col-form-label">Detalhes</label>
+                    <div class="col-sm-10">
                     
                     <textarea  class="form-control" name="detalhes" id="detalhes" rows="3" cols="">{{old('detalhes') }}</textarea>
                    
@@ -116,8 +116,8 @@ function readURL(input) {
                  </div>
                 
                 <div class="form-group row">
-                    <label for="ficha" class="col-sm-1 col-form-label">Ficha</label>
-                    <div class="col-sm-11">
+                    <label for="ficha" class="col-sm-2 col-form-label">Ficha</label>
+                    <div class="col-sm-10">
                     
                     <textarea  class="form-control" name="ficha" id="ficha" rows="3" cols="">{{old('ficha') }}</textarea>
                    

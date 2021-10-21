@@ -13,12 +13,12 @@ class LojaController extends Controller
         $itens = DB::Select('select id, descricao, cod_barra from produtos where id not in (select idproduto from loja where idempresa=' . Auth::user()->idempresa . ')');
            
     
-        $t = DB::select("SELECT `idloja`, loja.idproduto as idproduto, `preco`, `desconto`, `datainicioloja`, `datafimloja`, `datainiciopromo`, `datafimpromo`, destaque, loja.ativo as ativo, descricao, demanda 
+        $t = DB::select("SELECT `idloja`, loja.idproduto as idproduto, `preco`, `desconto`, comissao,`datainicioloja`, `datafimloja`, `datainiciopromo`, `datafimpromo`, destaque, loja.ativo as ativo, descricao, demanda 
 FROM `loja` 
 INNER JOIN produtos ON produtos.id = loja.idproduto
 where loja.idempresa=" . Auth::user()->idempresa . "
 
-GROUP by  `idloja`, loja.idproduto, `preco`, `desconto`, `datainicioloja`, `datafimloja`, `datainiciopromo`, `datafimpromo`,destaque, loja.ativo, descricao, demanda
+GROUP by  `idloja`, loja.idproduto, `preco`, `desconto`,comissao, `datainicioloja`, `datafimloja`, `datainiciopromo`, `datafimpromo`,destaque, loja.ativo, descricao, demanda
 ");
         return view('loja/index')->with(['t' =>$t,'itens'=>$itens]);
     }
