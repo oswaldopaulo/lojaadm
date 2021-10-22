@@ -80,7 +80,7 @@
                         <tbody>
                         @foreach($t as $r)
                             <tr>
-                            	<td style="text-align: right">	<a href="{{ url('transacoes/itens/' . $r->id)}}"> <i class="fas fa-list mr-1 blue"></i></a>
+                            	<td style="text-align: right">	<a href="{{ url('transacoes/itens/' . $r->id)}}"> <i class="fa fa-eye mr-1 blue" title="Visualizar"></i></a>
                             									
                             									
                             	</td>

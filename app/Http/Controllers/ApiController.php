@@ -223,8 +223,11 @@ class ApiController extends ControllerOpen
     
     public function getTransacoes($token){
         
+        
+     
+        
         if(Request::input('iduser') == null){
-            $resultado['erro']="IDUser invalido";
+            $resultado['erro']="id User invalido";
             return response()->json($resultado);
         }
         
@@ -237,6 +240,8 @@ class ApiController extends ControllerOpen
         
         $r = DB::table('transacoes')
         ->where(['idempresa'=>$empresa->id, 'iduser'=>Request::input('iduser')])
+        ->leftjoin('status_transacoes', 'transacoes.status', '=', 'status_transacoes.id')
+        ->select('transacoes.*', 'status_transacoes.descricao as status')
         ->orderBy('id','desc')
         ->get();
         return response()->json($r);
