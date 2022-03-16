@@ -51,6 +51,7 @@
                                                     <label class="custom-control-label" for="rememberPasswordCheck">Lembrar senha</label>
                                                 </div>
                                             </div>
+                                            Este site usa cookies para garantir que você obtenha a melhor experiência.
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="{{ route('password.request') }}">Esqueceu a senha?</a>
 

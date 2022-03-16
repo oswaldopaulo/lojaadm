@@ -27,8 +27,8 @@ Route::post('cadastros/empresas/editar', [App\Http\Controllers\EmpresasControlle
 Route::get('cadastros/empresas/remove/{id}', [App\Http\Controllers\EmpresasController::class, 'remove'])->where('id','[0-9]+');
 
 
-Route::get('/', 'LojaController@index');
-Route::get('/home', 'LojaController@index');
+Route::get('/', 'TransacoesController@index');
+Route::get('/home', 'TransacoesController@index');
 
 
 Route::any('/dashboard', 'DashboardController@index');

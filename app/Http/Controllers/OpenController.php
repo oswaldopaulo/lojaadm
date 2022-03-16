@@ -53,7 +53,7 @@ class OpenController extends ControllerOpen
     }
     
     function compras(){
-        return redirect()->away("http://localhost:8000/compras");
+        return redirect()->away("http://localhost:8001/compras");
     }
  
         
