@@ -71,6 +71,8 @@
                                 <th>Frete</th>
                                 <th>Status</th>
                                 <th>Data</th>
+                                <th>NFE</th>
+                                <th>Rastreio</th>
                                 
                                
                             </tr>
@@ -90,6 +92,8 @@
                                 <td>{{$r->frete}}</td>
                             	 <td>{{$r->status}}</td>
                                 <td>{{$r->data_trans}}</td>
+                                <td>{{$r->notafiscal}}</td>
+                                <td>{{$r->codigorastreio}}</td>
                                 
                            
                             </tr>

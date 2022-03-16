@@ -56,6 +56,8 @@ Route::get('usuarios/remove/{id}', 'UsuariosController@remove')->where('id','[0-
 
 Route::get('transacoes', 'TransacoesController@index');
 Route::get('transacoes/itens/{id}', 'TransacoesController@itens')->where('id','[0-9]+');
+Route::post('transacoes/setstatus/', 'TransacoesController@setstatus');
+
 
 
 

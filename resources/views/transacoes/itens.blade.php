@@ -66,25 +66,66 @@
             <div class="row">
                 
                 
-                <form  role="form" action="{{ url('/loja/novo') }}" method="post" class="form-inline">    
-                          <input type="hidden"
-										name="_token" value="{{{ csrf_token() }}}" />
+                <form  role="form" action="{{ url('transacoes/setstatus') }}" method="post" class="form-inline">    
+                        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+						<input type="hidden" name="id" value="{{$transacao->id}}" />
+						
+						
+						 <div class="form-group mb-2">
+                            <label for="staticEmail2" class="sr-only">Status</label>
+                            <input type="text" readonly class="form-control-plaintext"  value="Status: {{ $transacao->status_desc}}">
+                          </div>
+                          
+                          @if($transacao->notafiscal)
+                              <div class="form-group mb-2">
+                                <label for="notafiscal" class="sr-only">Nota Fiscal</label>
+                                <input type="text" readonly class="form-control-plaintext"  value="Nota Fiscal: {{ $transacao->notafiscal}}">
+                              </div>
+                          @endif
+                          
+                          @if($transacao->codigorastreio)
+                              <div class="form-group mb-2">
+                                <label for="codigorastreio" class="sr-only">C. Rastreio</label>
+                                <input type="text" readonly class="form-control-plaintext"  value="C.Rastreio: {{ $transacao->codigorastreio}}">
+                              </div>
+                          @endif
+                          
+                          <!-- 
+                          <div class="form-group mx-sm-3 mb-2">
+                            <label for="inputPassword2" class="sr-only">Password</label>
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                          </div>
+                           -->
+                          @if($transacao->status == 'A') 
+                          	<button type="submit" class="btn btn-primary mb-2">Mudar o status para Processado</button>
+                          @elseif($transacao->status == 'P') 
+                          		<button type="submit" class="btn btn-primary mb-2">Mudar o status para em separação</button>
+                          @elseif($transacao->status == 'S') 
+                          	 <div class="form-group mx-sm-3 mb-2">
+                            <label for="notafiscal" class="sr-only">Nota Fiscal</label>
+                            <input type="text" class="form-control" name="notafiscal" placeholder="Nota Fiscal" required>
                             
-                            <div class="form-group row">
-                    <label for="name" class="col-sm-1 col-form-label">Tra</label>
-                    <div class="col-sm-4">
-                      <input type="text" name="nome_estado" id="nome_estado" class="form-control"  required value="{{old('nome_estado')}}">
-                    </div>
-                      <label for="uf_estado" class="col-sm-1 col-form-label">UF</label>
-                    <div class="col-sm-2">
-                      <input type="text" name="uf_estado" id="uf_estado" class="form-control" required value="{{old('uf_estado')}}">
-                    </div>
-                    
-                   <label for="codigo_estado" class="col-sm-1 col-form-label">C. IBGE</label>
-                    <div class="col-sm-3">
-                      <input type="text" name="codigo_estado" id="codigo_estado" class="form-control"  required  value="{{old('codigo_estado')}}">
-                    </div>
-                 </div>	
+                            <label for="notafiscalfile" class="sr-only">Arquivo</label>
+                            <input type="file" class="form-control" name="notafiscalfile" placeholder="Arquivo Nota Fiscal">
+                            
+                          </div>
+                          	<button type="submit" class="btn btn-primary mb-2">Mudar o status para  Faturado</button>
+                          	
+                          @elseif($transacao->status == 'F') 
+                          	 <div class="form-group mx-sm-3 mb-2">
+                            <label for="codigorastreio" class="sr-only">Codigo de Rastreio</label>
+                            <input type="text" class="form-control" name="codigorastreio" placeholder="Cod.Rastreio" required>
+                            
+                            </div>
+                          	<button type="submit" class="btn btn-primary mb-2">Mudar o status para  Em transporte</button>
+                          	
+                          @elseif($transacao->status == 'T') 
+                          	
+                          	<button type="submit" class="btn btn-primary mb-2">Mudar o status para  Entregue</button>
+                          	
+                          @endif
+                            
+                
                               
                               
                           
