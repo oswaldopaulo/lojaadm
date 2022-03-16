@@ -247,5 +247,20 @@ class ApiController extends ControllerOpen
         return response()->json($r);
     }
     
+    public function getFaturado($id){
+        
+        if($id == null){
+            $resultado['erro']="id User invalido";
+            return response()->json($resultado);
+        }
+        
+        $r = DB::table('transacoes')
+        ->where(['id'=>$id])
+        ->select('notafiscal','codigorastreio')
+        ->orderBy('id','desc')
+        ->get();
+        return response()->json($r);
+    }
+    
     
 }

@@ -120,11 +120,13 @@ Route::get('/capa/{image}', 'OpenController@getcapa');
 Route::get('/icone/{image}', 'OpenController@geticone');
 
 
-//Conf API
+//Conf API IMAGENS
 Route::get('/pics/getbyitem/{id}', 'OpenController@getbyitem')->where('id','[0-9]+');
 Route::get('/pics/getbyname/{image}', 'OpenController@getbyname');
 Route::get('/pics/getbyid/{image}', 'OpenController@getbyid');
 
+
+//Conf API Administraçao
 Route::get('/v1/frete/{token}/{cep}', 'ApiController@getfrete');
 Route::get('/v1/cep/{token}/{cep}', 'ApiController@getcep');
 
@@ -133,6 +135,8 @@ Route::get('/v1/item/{token}', 'ApiController@getItem');
 Route::get('/v1/empresa/{token}', 'ApiController@getEmpresa');
 Route::get('/v1/pics/{token}', 'ApiController@getPics');
 Route::get('/v1/transacoes/{token}', 'ApiController@getTransacoes');
+
+Route::get('/v1/faturado/{id}', 'ApiController@getFaturado');
 
 
 Route::post('v1/paypal/{id}', 'PayPalController@payWithpaypal')->where('id','[0-9]+');
